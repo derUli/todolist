@@ -1,0 +1,10 @@
+{
+	"id": "todolist",
+	"version": "1.0",
+	"description": "ToDo-List",
+	"categories": [
+		"todo",
+		"tools"
+	],
+	"compatible_from": "2017.4"
+}
