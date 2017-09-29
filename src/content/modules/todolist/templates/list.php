@@ -8,19 +8,21 @@
 <div class="scroll">
 	<table id="todolist">
 		<thead>
-			<th></th>
-			<th><?php translate("title");?></th>
-			<td class="text-center"></td>
-			<td class="text-center"><?php translate("edit");?></td>
-			<td class="text-center"><?php translate("delete");?></td>
+			<tr>
+				<th></th>
+				<th><?php translate("title");?></th>
+				<td class="text-center"></td>
+				<td class="text-center"><?php translate("edit");?></td>
+				<td class="text-center"><?php translate("delete");?></td>
+			</tr>
 		</thead>
 		<tbody>
 	<?php
-	foreach ( $data as $item ) {
-		ViewBag::set ( "item", $item );
-		echo Template::executeModuleTemplate ( "todolist", "item.php" );
-	}
-	?>
+foreach ($data as $item) {
+    ViewBag::set("item", $item);
+    echo Template::executeModuleTemplate("todolist", "item.php");
+}
+?>
 	</tbody>
 	</table>
 </div>
@@ -36,8 +38,8 @@
 <script type="text/javascript"
 	src="<?php echo ModuleHelper::buildModuleRessourcePath("todolist", "js/list.js")?>"></script>
 <?php
-$translation = new JSTranslation ();
-$translation->addKey ( "title" );
-$translation->addKey ( "ask_for_delete" );
-$translation->renderJS ();
+$translation = new JSTranslation();
+$translation->addKey("title");
+$translation->addKey("ask_for_delete");
+$translation->renderJS();
 ?>
