@@ -18,11 +18,11 @@
 		</thead>
 		<tbody>
 	<?php
-foreach ($data as $item) {
-    ViewBag::set("item", $item);
-    echo Template::executeModuleTemplate("todolist", "item.php");
-}
-?>
+	foreach ( $data as $item ) {
+		ViewBag::set ( "item", $item );
+		echo Template::executeModuleTemplate ( "todolist", "item.php" );
+	}
+	?>
 	</tbody>
 	</table>
 </div>
@@ -38,8 +38,8 @@ foreach ($data as $item) {
 <script type="text/javascript"
 	src="<?php echo ModuleHelper::buildModuleRessourcePath("todolist", "js/list.js")?>"></script>
 <?php
-$translation = new JSTranslation();
-$translation->addKey("title");
-$translation->addKey("ask_for_delete");
-$translation->renderJS();
+$translation = new JSTranslation ();
+$translation->addKey ( "title" );
+$translation->addKey ( "ask_for_delete" );
+$translation->renderJS ();
 ?>
