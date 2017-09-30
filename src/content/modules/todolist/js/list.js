@@ -14,7 +14,8 @@ function rebindEvents() {
 	$(".btn-up").off("click");
 	$(".btn-down").off("click");
 
-	$("#btn-new").on("click", function() {
+	$("#btn-new").on("click", function(e) {
+		e.preventDefault();
 		var title = window.prompt(Translation.TITLE + ":", "");
 		if (title && title != "") {
 			$.ajax({
@@ -31,7 +32,8 @@ function rebindEvents() {
 			});
 		}
 	});
-	$(".btn-edit").on("click", function() {
+	$(".btn-edit").on("click", function(e) {
+		e.preventDefault();
 		textTitle = $("span.title[data-id='" + $(this).data("id") + "']");
 		var oldTitle = textTitle.text();
 		var title = window.prompt(Translation.TITLE + ":", oldTitle);
@@ -51,7 +53,8 @@ function rebindEvents() {
 			});
 		}
 	});
-	$(".btn-delete").on("click", function() {
+	$(".btn-delete").on("click", function(e) {
+		e.preventDefault();
 		element = $(this);
 		if (window.confirm(Translation.ASK_FOR_DELETE)) {
 			$.ajax({
@@ -68,7 +71,8 @@ function rebindEvents() {
 			});
 		}
 	});
-	$(".btn-up").on("click", function() {
+	$(".btn-up").on("click", function(e) {
+		e.preventDefault();
 		element = $(this);
 		$.ajax({
 			url : $(this).data("url"),
@@ -87,7 +91,8 @@ function rebindEvents() {
 			}
 		});
 	});
-	$(".btn-down").on("click", function() {
+	$(".btn-down").on("click", function(e) {
+		e.preventDefault();
 		element = $(this);
 		$.ajax({
 			url : $(this).data("url"),
@@ -106,7 +111,7 @@ function rebindEvents() {
 			}
 		});
 	});
-	$(".checkbox-done").on("click", function() {
+	$(".checkbox-done").on("click", function(e) {
 		var isChecked = $(this).is(":checked") ? 1 : 0;
 		element = $(this);
 		$.ajax({
