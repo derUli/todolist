@@ -10,6 +10,10 @@ class TodoListModule extends Controller {
 	public function settings() {
 		return Template::executeModuleTemplate ( $this->moduleName, "list.php" );
 	}
+	public function accordionLayout() {
+        ViewBag::set("items", TodoListItem::getAllDonebyUser(null, false));
+	    return Template::executeModuleTemplate ( $this->moduleName, "dashboard" );
+	}
 	public function addItem() {
 		$acl = new ACL ();
 		if ($acl->hasPermission ( getModuleMeta ( $this->moduleName, "admin_permission" ) ) and Request::getVar ( "title" )) {
