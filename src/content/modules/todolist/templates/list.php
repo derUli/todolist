@@ -4,6 +4,10 @@
 	<a href="#"
 		data-url="<?php echo ModuleHelper::buildMethodCallURL("TodoListModule", "addItem");?>"
 		class="btn btn-info" id="btn-new" role="button"><?php translate("new");?></a>
+	<a href="#"
+		data-url="<?php echo ModuleHelper::buildMethodCallURL("TodoListModule", "deleteAllCheckedItems");?>"
+		class="btn btn-danger pull-right" id="btn-delete-finished"
+		role="button"><?php translate("delete_all_finished");?></a>
 </p>
 <div class="scroll">
 	<table id="todolist">
@@ -18,11 +22,11 @@
 		</thead>
 		<tbody>
 	<?php
-	foreach ( $data as $item ) {
-		ViewBag::set ( "item", $item );
-		echo Template::executeModuleTemplate ( "todolist", "item.php" );
-	}
-	?>
+foreach ($data as $item) {
+    ViewBag::set("item", $item);
+    echo Template::executeModuleTemplate("todolist", "item.php");
+}
+?>
 	</tbody>
 	</table>
 </div>
@@ -38,8 +42,8 @@
 <script type="text/javascript"
 	src="<?php echo ModuleHelper::buildModuleRessourcePath("todolist", "js/list.js")?>"></script>
 <?php
-$translation = new JSTranslation ();
-$translation->addKey ( "title" );
-$translation->addKey ( "ask_for_delete" );
-$translation->renderJS ();
+$translation = new JSTranslation();
+$translation->addKey("title");
+$translation->addKey("ask_for_delete");
+$translation->renderJS();
 ?>

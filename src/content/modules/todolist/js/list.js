@@ -9,6 +9,7 @@ jQuery.fn.swapWith = function(to) {
 
 function rebindEvents() {
 	$("#btn-new").off("click");
+	$("#btn-delete-finished").off("click");
 	$(".btn-edit").off("click");
 	$(".btn-delete").off("click");
 	$(".btn-up").off("click");
@@ -32,6 +33,38 @@ function rebindEvents() {
 			});
 		}
 	});
+	$("#btn-delete-finished")
+			.on(
+					"click",
+					function(e) {
+						if (window.confirm(Translation.ASK_FOR_DELETE)) {
+							e.preventDefault();
+							$
+									.ajax({
+										url : $(this).data("url"),
+										method : "POST",
+										data : {
+											"csrf_token" : $(
+													"input[name='csrf_token']")
+													.val()
+										},
+										success : function(result) {
+											var items = $(
+													"#todolist tbody tr input[type='checkbox']:checked")
+													.each(
+															function(i, element) {
+																$(element)
+																		.closest(
+																				"tr")
+																		.remove();
+															});
+											rebindEvents();
+										}
+
+									});
+						}
+
+					});
 	$(".btn-edit").on("click", function(e) {
 		e.preventDefault();
 		textTitle = $("span.title[data-id='" + $(this).data("id") + "']");
