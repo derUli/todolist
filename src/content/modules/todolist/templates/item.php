@@ -1,13 +1,15 @@
 <?php
-$item = ViewBag::get ( "item" );
+$item = ViewBag::get("item");
 if ($item) {
-	?>
+    ?>
 <tr>
 	<td class="text-center"><input class="checkbox-done"
 		data-id="<?php echo $item->getID();?>"
+		id="task-<?php echo $item->getID();?>"
 		data-url="<?php echo ModuleHelper::buildMethodCallURL("TodoListModule", "checkItem");?>"
 		type="checkbox" <?php if($item->isDone()){ echo "checked";}?>></td>
-	<td><span class="title" data-id="<?php echo $item->getID();?>"><?php Template::escape($item->getTitle());?></span></td>
+	<td><span class="title" data-id="<?php echo $item->getID();?>"><label
+			for="task-<?php echo $item->getID();?>" class="normal-weight"><?php Template::escape($item->getTitle());?></label></span></td>
 
 	<td class="text-center"><a href="#"
 		data-id="<?php echo $item->getID();?>" class="btn-up"
@@ -18,8 +20,7 @@ if ($item) {
 		data-url="<?php echo ModuleHelper::buildMethodCallURL("TodoListModule", "down");?>"><img
 			src="<?php echo ModuleHelper::buildModuleRessourcePath("todolist", "gfx/down.png");?>"
 			alt="<?php translate("down")?>" title="<?php translate("down");?>"></a>
-		</zd>
-	
+	</td>
 	<td class="text-center"><a href="#"
 		data-id="<?php echo $item->getID();?>" class="btn-edit"
 		data-url="<?php echo ModuleHelper::buildMethodCallURL("TodoListModule", "updateItem");?>"><img
