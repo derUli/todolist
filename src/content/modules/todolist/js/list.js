@@ -17,7 +17,7 @@ function rebindEvents() {
 
 	$("#btn-new").on("click", function(e) {
 		e.preventDefault();
-		var title = window.prompt(Translation.TITLE + ":", "");
+		var title = window.prompt(Translation.Title + ":", "");
 		if (title && title != "") {
 			$.ajax({
 				url : $(this).data("url"),
@@ -37,7 +37,7 @@ function rebindEvents() {
 			.on(
 					"click",
 					function(e) {
-						if (window.confirm(Translation.ASK_FOR_DELETE)) {
+						if (window.confirm(Translation.AskForDelete)) {
 							e.preventDefault();
 							$
 									.ajax({
@@ -69,7 +69,7 @@ function rebindEvents() {
 		e.preventDefault();
 		textTitle = $("span.title[data-id='" + $(this).data("id") + "']");
 		var oldTitle = textTitle.text();
-		var title = window.prompt(Translation.TITLE + ":", oldTitle);
+		var title = window.prompt(Translation.Title + ":", oldTitle);
 		if (title && title != "") {
 			$.ajax({
 				url : $(this).data("url"),
@@ -89,7 +89,7 @@ function rebindEvents() {
 	$(".btn-delete").on("click", function(e) {
 		e.preventDefault();
 		element = $(this);
-		if (window.confirm(Translation.ASK_FOR_DELETE)) {
+		if (window.confirm(Translation.AskForDelete)) {
 			$.ajax({
 				url : $(this).data("url"),
 				method : "POST",
