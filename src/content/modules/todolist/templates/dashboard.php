@@ -11,6 +11,7 @@ if ($acl->hasPermission(getModuleMeta("todolist", "admin_permission")) and ViewB
 <?php }?>
 	</ul>
 	<?php }?>
-	[<a href="<?php echo ModuleHelper::buildAdminURL("todolist");?>"><?php translate("open_todolist");?></a>]
+	<a href="<?php echo ModuleHelper::buildAdminURL("todolist");?>"
+		class="btn btn-primary"><?php translate("open_todolist");?></a>
 </div>
 <?php }?>
