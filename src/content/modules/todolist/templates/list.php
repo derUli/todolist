@@ -3,11 +3,11 @@
 <p>
 	<a href="#"
 		data-url="<?php echo ModuleHelper::buildMethodCallURL("TodoListModule", "addItem");?>"
-		class="btn btn-info" id="btn-new" role="button"><?php translate("new");?></a>
+		class="btn btn-info" id="btn-new" role="button"><i class="fas fa-plus"></i> <?php translate("new");?></a>
 	<a href="#"
 		data-url="<?php echo ModuleHelper::buildMethodCallURL("TodoListModule", "deleteAllCheckedItems");?>"
 		class="btn btn-danger pull-right" id="btn-delete-finished"
-		role="button"><?php translate("delete_all_finished");?></a>
+		role="button"><i class="fa fa-trash" aria-hidden="true"></i> <?php translate("delete_all_finished");?></a>
 </p>
 <div class="scroll">
 	<table id="todolist">
