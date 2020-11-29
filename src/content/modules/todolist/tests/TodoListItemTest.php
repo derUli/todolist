@@ -1,10 +1,10 @@
 <?php
 class TodoListItemTest extends PHPUnit_Framework_TestCase {
-	public function setUp() {
+	protected function setUp(): void {
 		Database::query ( "delete from `{prefix}todolist_items`
  						where title = 'Do Homework' or title = 'Clean the bathroom'", true );
 	}
-	public function tearDown() {
+	protected function tearDown(): void {
 		$this->setUp ();
 	}
 	public function testCreateUpdateAndDelete() {
